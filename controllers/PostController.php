@@ -12,6 +12,9 @@ class PostController extends AppController{
         public function actionShow(){
             return $this->render('show');
         }
+        public function actionIndex(){
+            return $this->render('index');
+        }
 }
 
 ?>

@@ -1,6 +1,7 @@
 
 <?php
 use app\assets\AppAsset;
+use yii\helpers\Html;
 
 AppAsset::register($this);
 ?>
@@ -17,8 +18,22 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-    <h1>Basic Layout</h1>
-    <?=$content?>
+    <div class="wrap">
+        <div slass="container">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a role= "presentation" class="active"><?=Html::a('Главная',['/site/index'])?></a>
+                </li>
+                <li class="nav-item">
+                    <a role= "presentation"><?=Html::a('Статьи',['post/index'])?></a>
+                </li>
+                <li class="nav-item">
+                    <a role= "presentation"><?=Html::a('Статья',['post/show'])?></a>
+                </li>
+            </ul>
+            <?=$content?>
+        </div>
+    </div>
     <?php $this->endBody() ?>
 </body>
 </html>

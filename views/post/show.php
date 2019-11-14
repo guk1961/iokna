@@ -8,5 +8,9 @@
 </head>
 <body>
     <h1>Show</h1>
+    <div id='test'>Привет</div>
 </body>
 </html>
+<?php
+    $this->registerJsFile('@web/js/myscripts.js', ['depends'=>'yii\web\YiiAsset']);
+?>
