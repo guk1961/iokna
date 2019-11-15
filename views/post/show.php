@@ -1,16 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Show</h1>
-    <div id='test'>Привет</div>
-</body>
-</html>
+<h1>show action</h1>
+<button class="btn btn-siccess" id="btnok">OK</button>
 <?php
-    $this->registerJsFile('@web/js/myscripts.js', ['depends'=>'yii\web\YiiAsset']);
+    //$this->registerJsFile('@web/js/myscripts.js', ['depends'=>'yii\web\YiiAsset']);
+    //$this-> registerJs ( "$('p').append('<p>777777777777777777777777</p>')", yii\web\View::POS_LOAD);
+    //$this-> registerCss ( 'p(backcolor: #ccc)');
+?>
+
+<?php
+
+$js = <<<JS
+    $('#btnok').on('click', function(){
+        $.ajax({
+            url:'index.php?r=post/index',
+            data: {test:'1234567'},
+            type:'POST',
+            success: function(res){
+                console.log(res);
+            },
+            error: function(){
+                alert('Error!');
+            }
+        })
+    });
+
+JS;
+$this -> registerJs($js);
 ?>
