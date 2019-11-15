@@ -2,6 +2,7 @@
 namespace app\controllers;
 use Yii;
 use app\models\TestForm;
+use app\models\Category;
 
 class PostController extends AppController{
     public $layout='basic';
@@ -35,7 +36,9 @@ class PostController extends AppController{
             $this->view->registerMetaTag(['name'=>'keywords', 'content'=>'ключевые слова']);
             $this->view->registerMetaTag(['name'=>'description', 'content'=>'Описание страницы']);
 
-            return $this->render('show');
+            $cats = Category::find()->all();
+
+            return $this->render('show',compact('cats'));
         }
         public function actionIndex(){
             $this->view->title='Список статей';

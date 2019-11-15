@@ -4,6 +4,7 @@
     //$this->registerJsFile('@web/js/myscripts.js', ['depends'=>'yii\web\YiiAsset']);
     //$this-> registerJs ( "$('p').append('<p>777777777777777777777777</p>')", yii\web\View::POS_LOAD);
     //$this-> registerCss ( 'p(backcolor: #ccc)');
+    debug($cats);
 ?>
 
 <?php
