@@ -36,7 +36,23 @@ class PostController extends AppController{
             $this->view->registerMetaTag(['name'=>'keywords', 'content'=>'ключевые слова']);
             $this->view->registerMetaTag(['name'=>'description', 'content'=>'Описание страницы']);
 
-            $cats = Category::find()->all();
+//            $cats = Category::find()->all();
+//            $cats = Category::find()->orderBy(['pid' => SORT_ASC])->all();
+//            $cats = Category::find()->asArray()->all();
+//            $cats = Category::find()->asArray()->where('pid=691')->all();
+//            $cats = Category::find()->asArray()->where(['pid'=>692])->all();
+//            $cats = Category::find()->asArray()->where(['like','title','кро'])->all();
+//              $cats = Category::find()->asArray()->where(['<=','pid', 700])->all();
+//              $cats = Category::find()->asArray()->where(['<=','pid', 700])->limit(2)->all();
+//              $cats = Category::find()->asArray()->where(['<=','pid', 700])->limit(1)->one();
+//              $cats = Category::find()->asArray()->where(['<=','pid', 700])->one();
+//              $cats = Category::find()->asArray()->where(['<=','pid', 700])->count();
+//                $cats = Category::findOne(['<=','pid', 700]);
+//                $cats = Category::findAll(['pid'=>692]);
+                // $query = 'select * from category where title like "%ip%"';
+                // $cats = Category::findBySql($query)->asArray()->all();
+                $query = 'select * from category where title like :param';
+                $cats = Category::findBySql($query, [':param' =>'%ip%'])->asArray()->all();
 
             return $this->render('show',compact('cats'));
         }

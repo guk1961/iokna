@@ -5,6 +5,11 @@
     //$this-> registerJs ( "$('p').append('<p>777777777777777777777777</p>')", yii\web\View::POS_LOAD);
     //$this-> registerCss ( 'p(backcolor: #ccc)');
     debug($cats);
+echo '<br>' ;
+//    foreach($cats as $cat){
+//        echo $cat->id . '/' . $cat->title . '/' . $cat->alias .'<br>';
+//        echo  $cat['pid'] . '/' . $cat['id'] . '/' . $cat['title'] . '/' . $cat['alias'] .'<br>';
+//    }
 ?>
 
 <?php
