@@ -1,17 +1,34 @@
 <?php
 namespace app\controllers;
 use Yii;
+use app\models\TestForm;
+
 class PostController extends AppController{
     public $layout='basic';
     
 // public function beforeAction($action){
 // //        my_log($action);
 // }
-
         public function actionTest(){
             $names = ['Иванов','Петров','Сидоров'];
-            
-            return $this->render('test');//,['this'=>$this]);
+
+            $this->view->title='test view';
+
+            $model = new TestForm();
+            if($model->load(Yii::$app->request->post())){
+//                debug($model);
+//                debug(Yii::$app->request->post());
+//                die();
+                if($model->validate()){
+//                    debug(Yii::$app->request->post());
+                    Yii::$app->session->setFlash('success','Данные приняты успешно');
+                    return $this->refresh();
+                }else{
+                    Yii::$app->session->setFlash('error','Ошибка сохранения данных');
+
+                }
+            }
+            return $this->render('test', compact('names','model'));//,['this'=>$this]);
         }
         public function actionShow(){
             $this->view->title='Выбранная статья';

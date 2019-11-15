@@ -1,8 +1,8 @@
 <?php
 
-function my_log($arr){
+function debug($arr){
     //        echo '<br><br><br><br><br><br><br><br><br><br><br><br>';
-            echo '<prev>'.print_r($arr, true).'</prev>';
+            echo '<pre>'.print_r($arr, true).'<br></pre>';
         }
 
 ?>
