@@ -22,6 +22,7 @@ use yii\helpers\Html;
 <?= $form->field($model,'name')->label('Имя') ?>
 <?= $form->field($model,'phone')->label('Телефон')->input('phone') ?>
 <?= $form->field($model,'email')->input('email') ?>
+<?= yii\jui\DatePicker::widget(['name' => 'attributeName']) ?>
 <?= $form->field($model,'text')->label('Сообщение')->textarea(['rows'=>5]) ?>
 <?= Html::submitButton('Отправить',['class'=>'btn btn-success']) ?>
 <?php ActiveForm::end()?>
