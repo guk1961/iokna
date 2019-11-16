@@ -36,6 +36,9 @@ AppAsset::register($this);
                     <a role= "presentation"><?=Html::a('Статья',['post/show'])?></a>
                 </li>
                 <li class="nav-item">
+                    <a role= "presentation"><?=Html::a('Сообщения',['post/posts'])?></a>
+                </li>
+                <li class="nav-item">
                     <a role= "presentation"><?=Html::a('Test',['post/test'])?></a>
                 </li>
             </ul>
