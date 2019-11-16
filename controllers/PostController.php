@@ -51,8 +51,14 @@ class PostController extends AppController{
 //                $cats = Category::findAll(['pid'=>692]);
                 // $query = 'select * from category where title like "%ip%"';
                 // $cats = Category::findBySql($query)->asArray()->all();
-                $query = 'select * from category where title like :param';
-                $cats = Category::findBySql($query, [':param' =>'%ip%'])->asArray()->all();
+                // $query = 'select * from category where title like :param';
+                // $cats = Category::findBySql($query, [':param' =>'%ip%'])->asArray()->all();
+
+//            $cats = Category::findOne(694);//lazy load
+//            $cats = Category::find(694)->with('product')->where('id=694')->all();//ager load
+                $cats = Category::find()->with('product')->all();//ager load
+//                $cats = Category::find()->all();//lazy load
+
 
             return $this->render('show',compact('cats'));
         }
